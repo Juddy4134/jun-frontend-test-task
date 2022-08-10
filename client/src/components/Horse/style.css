@@ -1,0 +1,29 @@
+.running-horse {
+    width: 10%;
+    height: 70px;
+}
+
+.horse-container{
+    display: flex;
+    border-top: 1px solid black;
+}
+
+.horse-container:last-child{
+    border-bottom: 1px solid black;
+}
+
+.runway{
+    width: 80%;;
+}
+
+.horse-name{
+    padding-top: 10px;
+    width: 150px;
+    border-right: 1px solid RED;
+}
+
+.finish{
+    padding-top: 10px;
+    border-left: 1px solid RED;
+    width: 10%;
+}

@@ -1,16 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One&display=swap');
+
 .App {
   text-align: center;
+  font-family: 'Alumni Sans Inline One', cursive;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button{
+  font-family: 'Alumni Sans Inline One', cursive;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 10s linear;
-  }
+body{
+  background-color: #F2D16B;
+}
+
+.field-pedestal-container{
+  display: grid;
+  grid-template-columns: 5fr 1fr;
 }
 
 .App-header {
@@ -28,11 +33,3 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

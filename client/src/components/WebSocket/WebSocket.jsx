@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import io from "socket.io-client"
-import {updateHorsesDistance, pushToPlacesQueue} from '../../store/reducers/horseSlice';
+import {updateHorsesDistance, pushToPlacesQueue, clearHorsesByPlace} from '../../store/reducers/horseSlice';
+import "./style.css"
 
 
 const WebSocket = () => {
@@ -9,20 +10,20 @@ const WebSocket = () => {
     const dispatch = useDispatch()
 
     const [connected, setConnected] = useState(false);
-    
-    useEffect(() => {
-       connect();
-    } , []);
 
+    const ref = useRef();
+    
+    function disconnect () {
+        ref.current.disconnect();
+        setConnected(false)
+    }
 
     async function connect () {
-
+        dispatch(clearHorsesByPlace());
         const socket = await io('http://localhost:3002');
 
         socket.on('connect', () => 
-            socket.connected 
-            ? setConnected(true) 
-            : setConnected(false)
+            setConnected(true)  
         );
         
         socket.emit("start")
@@ -32,21 +33,30 @@ const WebSocket = () => {
                 if(horse.distance === 1000){
                     dispatch(pushToPlacesQueue(horse))
                 }})
-
-            dispatch(updateHorsesDistance(horses))
+            
+            dispatch(updateHorsesDistance(horses));
             
           });
+
+          ref.current = socket
       
         return () => socket.disconnect();
     }
+
     if(connected){
         return (
-            <div>You are connected to live stream</div>
+            <div>
+                <p className="race-title">You are connected to live stream</p>
+                <button className="race-button" onClick={()=> disconnect()}>Disconnect</button>
+            </div>
         )
-    }
+    } 
 
     return (
-        <div>You are not connected yet</div>
+        <div>
+            <p className="race-title">Click the button to start race!</p>
+            <button className="race-button" onClick={()=> connect()}>Start Race!</button>
+        </div>
     )
 };
 
