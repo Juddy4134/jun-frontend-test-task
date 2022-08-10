@@ -5,7 +5,7 @@ const Pedestal = ({horsesByPlace}) => {
 
     const pedestalList = horsesByPlace.split(",").map((elem)=> <li>{elem}</li>)
     
-    if(pedestalList.length !== 0){
+    if(pedestalList.length !== 1){
         return (
             <div>
                 <p>Places</p>

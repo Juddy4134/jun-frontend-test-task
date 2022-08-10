@@ -2,7 +2,7 @@ import './App.css';
 import { Provider } from 'react-redux';
 import store from './store/root'
 import WebSocket from './components/WebSocket/WebSocket'
-import PedestalDataProvider from './component/PedestalDataProvider/PedestalDataProvider'
+import PedestalDataProvider from './components/PedestalDataProvider/PedestalDataProvider'
 import RaceFieldDataProvider from './components/RaceFieldDataProvider/RaceFieldDataProvider';
  
 function App() {
@@ -15,7 +15,7 @@ function App() {
           <PedestalDataProvider/>
         </div>
       </Provider>
-      
+  
     </div>
   );
 }

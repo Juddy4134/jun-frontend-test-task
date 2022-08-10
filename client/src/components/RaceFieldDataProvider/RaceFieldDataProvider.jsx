@@ -6,9 +6,10 @@ import HorsesRaceField from '../HorsesRaceField/HorsesRaceField';
 const RaceFieldDataProvider = () => {
 
     const {horseWithDistance} = useSelector(state => state.horseSlice)
+    console.log(horseWithDistance)
 
     return (
-        <HorsesRaceField horsehorseWithDistancesList={horseWithDistance}/>
+        <HorsesRaceField horseWithDistance={horseWithDistance}/>
     );
 };
 
