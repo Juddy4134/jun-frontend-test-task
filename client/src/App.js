@@ -1,9 +1,9 @@
 import './App.css';
-import HorsesDistanceList from './components/HorsesRaceField/HorsesRaceField';
 import { Provider } from 'react-redux';
 import store from './store/root'
 import WebSocket from './components/WebSocket/WebSocket'
-import Pedestal from './components/Pedestal/Pedestal';
+import PedestalDataProvider from './component/PedestalDataProvider/PedestalDataProvider'
+import RaceFieldDataProvider from './components/RaceFieldDataProvider/RaceFieldDataProvider';
  
 function App() {
   return (
@@ -11,8 +11,8 @@ function App() {
       <Provider store={store}>
         <WebSocket/>
         <div className='field-pedestal-container'>
-          <HorsesDistanceList/>
-          <Pedestal></Pedestal>
+          <RaceFieldDataProvider/>
+          <PedestalDataProvider/>
         </div>
       </Provider>
       

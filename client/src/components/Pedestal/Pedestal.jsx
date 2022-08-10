@@ -1,11 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
-const Pedestal = () => {
-    const {horsesByPlace} = useSelector(state => state.horseSlice)
+
+const Pedestal = ({horsesByPlace}) => {
+
     const pedestalList = horsesByPlace.split(",").map((elem)=> <li>{elem}</li>)
-
-    if(horsesByPlace !== ""){
+    
+    if(pedestalList.length !== 0){
         return (
             <div>
                 <p>Places</p>
