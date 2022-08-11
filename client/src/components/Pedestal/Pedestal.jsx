@@ -3,7 +3,7 @@ import React from 'react';
 
 const Pedestal = ({horsesByPlace}) => {
 
-    const pedestalList = horsesByPlace.split(",").map((elem)=> <li>{elem}</li>)
+    const pedestalList = horsesByPlace.split(",").map((elem)=> <li key={elem}>{elem}</li>)
     
     if(pedestalList.length !== 1){
         return (
